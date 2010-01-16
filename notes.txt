@@ -1,0 +1,18 @@
+
+# Implementation changes
+
+The following changes were changed due to language differences between php and ruby
+
+* All classes are prefixed with the word Liquid to prevent namespace issues
+
+* The class method call "parse" to the LiquidTemplate object has been implemented as an
+instance method
+
+* The File system object is passed from the template object to the child classes, rather 
+than being set in the LiquidTemplate object
+
+* Certain tests (security_test, strainer_test) where not neccesary due to their not being 
+any base object class in php and hence no corresponding security issues
+
+* Instead of being registered via class methods, filters are registered to instances, and
+a filterbank class replaces the strainer as the repository and invoker of filters
